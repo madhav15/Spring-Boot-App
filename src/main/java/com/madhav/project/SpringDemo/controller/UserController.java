@@ -12,39 +12,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.madhav.project.SpringDemo.model.User;
-import com.madhav.project.SpringDemo.repository.UserRepository;
+import com.madhav.project.SpringDemo.service.UserService;
 
 @RestController
 @RequestMapping("/api")
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@GetMapping("/users")
 	public List<User> getAllUsers() {
-		return userRepository.findAll();
+		return userService.findAll();
 	}
 	
 	@GetMapping("/users/{id}")
 	public User getUser(@PathVariable Long id) {
-		return userRepository.findOne(id);
+		return userService.findOne(id);
 	}
 	
 	@DeleteMapping("/users/{id}")
 	public Boolean deleteUser(@PathVariable Long id) {
-		userRepository.delete(id);
-		return true;
+		return userService.deleteUser(id);
 	}
 	
 	@PostMapping("/user")
 	public User createUser(User user) {
-		return userRepository.save(user);
+		return userService.createUser(user);
 	}
 	
 	@PutMapping("/user")
 	public User updateUser(User user) {
-		return userRepository.save(user);
+		return userService.updateUser(user);
 	}
 	
 }
