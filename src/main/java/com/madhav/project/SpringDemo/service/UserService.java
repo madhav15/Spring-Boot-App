@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.madhav.project.SpringDemo.model.User;
 
+/**
+ * user service.
+ * 
+ * @author madhav
+ *
+ */
 public interface UserService {
 
 	List<User> findAll();
