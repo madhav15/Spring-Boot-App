@@ -1,24 +1,34 @@
 package com.madhav.project.SpringDemo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="user")
 public class User {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="user_id")
 	private Long id;
 	
+	@Column(name="first_name")
 	private String firstName;
 	
+	@Column(name="last_name")
 	private String lastName;
+	
+	@Column(name="mobile_number")
+	private Long mobileNumber;
 
 	public User() {		
 	}
 	
-	public User(String firstName, String lastName) {
+	public User(final String firstName, final String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -28,7 +38,7 @@ public class User {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -36,7 +46,7 @@ public class User {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(final String firstName) {
 		this.firstName = firstName;
 	}
 
@@ -44,14 +54,18 @@ public class User {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastName(final String lastName) {
 		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	public Long getMobileNumber() {
+		return mobileNumber;
 	}
+
+	public void setMobileNumber(final Long mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
 	
 	
 }
