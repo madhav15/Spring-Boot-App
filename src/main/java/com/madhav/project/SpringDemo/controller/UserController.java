@@ -23,7 +23,7 @@ import com.madhav.project.SpringDemo.service.UserService;
  *
  */
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/api")
 public class UserController {
 
