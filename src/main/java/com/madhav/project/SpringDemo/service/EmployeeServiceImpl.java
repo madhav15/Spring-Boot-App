@@ -26,9 +26,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Boolean deleteById(final Long id) {
-		employeeRepository.delete(id);
-		return Boolean.TRUE;
-		
+		try {
+			employeeRepository.delete(id);
+			return Boolean.TRUE;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return Boolean.FALSE;
+		}
 	}
 
 	@Override
