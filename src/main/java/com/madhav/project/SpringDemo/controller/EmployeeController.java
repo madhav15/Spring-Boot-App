@@ -46,6 +46,6 @@ public class EmployeeController {
 	
 	@PutMapping("/employee")
 	public Employee updateEmployee(@RequestBody final Employee employee) {
-		return employeeService.createEmployee(employee);
+		return employeeService.upadetEmployee(employee);
 	}
 }
