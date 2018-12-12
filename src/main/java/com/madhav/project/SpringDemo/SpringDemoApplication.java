@@ -1,18 +1,18 @@
 package com.madhav.project.SpringDemo;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class SpringDemoApplication implements CommandLineRunner{
+public class SpringDemoApplication extends SpringBootServletInitializer {
 
 	public static void main(String... args) {
 		SpringApplication.run(SpringDemoApplication.class, args);
 	}
 
-	@Override
-	public void run(String... str) throws Exception {
-		System.out.println("#Debug:: Running Spring Boot Application...");
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return super.configure(builder);
 	}
 }
